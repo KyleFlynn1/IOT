@@ -1,0 +1,27 @@
+/*
+PET FEEDER SERVO MOVING 90
+*/
+
+#include <Servo.h>
+
+Servo arm; // Create a "Servo" object called "arm"
+float pos = 0.0; // Variable where the arm's position will be stored (in degrees)
+float step = 1.0; // Variable used for the arm's position step
+
+void setup()
+{
+  pinMode(A1, INPUT_PULLUP); // Set the A1 pin to a pushbutton in pullup mode
+  arm.attach(2); // Attache the arm to the pin 2
+  arm.write(pos); // Initialize the arm's position to 0 (leftmost)
+}
+
+void loop()
+{
+
+  if (!digitalRead(A1)) // Check for the Blue button input
+  {
+    arm.write(90); //Set to 90 degrees (top)
+    delay(5000);  //Delay 5000ms (5seconds) before setting back
+    arm.write(0); //Set to 0 degrees (far left)
+  }
+}
