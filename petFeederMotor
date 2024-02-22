@@ -25,3 +25,5 @@ void loop()
     arm.write(0); //Set to 0 degrees (far left)
   }
 }
+
+//https://wokwi.com/projects/390444102811674625
